@@ -143,8 +143,9 @@ if args.train:
 
         # Main episode loop
         t = 0
-        frame_counter += 1
-        while t < args.max_episode_length:
+        frame_counter = 0
+        # while t < args.max_episode_length:
+        while frame_counter <= args.max_frames_number:
             # Stop the episode if it takes too long
             if frame_counter > args.max_frames_number:
                 DQA.quit()
@@ -193,7 +194,7 @@ if args.train:
             score += reward
 
             # Log episode data in the training csv
-            if done or t == args.max_episode_length - 1:
+            if done or frame_counter == args.max_frames_number:
                 logger.to_csv(training_csv, [t, score])
                 logger.log("Length: %d; Score: %d\n" % (t + 1, score))
                 break
