@@ -133,6 +133,7 @@ if args.train:
     while episode < args.max_episodes:
         # Start episode
         logger.log("Episode %d" % episode)
+        score = 0
 
         # Observe reward and initialize first state
         obs = utils.preprocess_observation(env.reset())
