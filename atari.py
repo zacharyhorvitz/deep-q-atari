@@ -135,11 +135,11 @@ if args.train:
         logger.log("Episode %d" % episode)
         score = 0
 
-        # # Observe reward and initialize first state
-        # obs = utils.preprocess_observation(env.reset())
+        # Observe reward and initialize first state
+        obs = utils.preprocess_observation(env.reset())
 
-        # # Initialize the first state with the same 4 images
-        # current_state = np.array([obs, obs, obs, obs])
+        # Initialize the first state with the same 4 images
+        current_state = np.array([obs, obs, obs, obs])
 
         # Main episode loop
         t = 0
@@ -197,12 +197,8 @@ if args.train:
             if done:
                 logger.to_csv(training_csv, [t, score])
                 logger.log("Length: %d; Score: %d\n" % (t + 1, score))
-
-		        # Observe reward and initialize first state
-		        obs = utils.preprocess_observation(env.reset())
-
-		        # Initialize the first state with the same 4 images
-		        current_state = np.array([obs, obs, obs, obs])
+                obs = utils.preprocess_observation(env.reset())
+                current_state = np.array([obs, obs, obs, obs])
                 
 
             t += 1
