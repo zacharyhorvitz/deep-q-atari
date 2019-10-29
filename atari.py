@@ -36,7 +36,7 @@ parser.add_argument('--minibatch-size', type=int, default=32,
                     help='number of sample to train the DQN at each update')
 parser.add_argument('--replay-memory-size', type=int, default=1e6,
                     help='number of samples stored in the replay memory')
-parser.add_argument('--target-network-update-freq', type=int, default=10e3,
+parser.add_argument('--target-network-update-freq', type=int, default=10e4,
                     help='frequency (number of DQN updates) with which the '
                          'target DQN is updated')
 parser.add_argument('--avg-val-computation-freq', type=int, default=50e3,
